@@ -1,0 +1,16 @@
+{
+    "scripts": {
+        "start": "concurrently \"npm run start:shopify\" \"npm run tailwind\"",
+        "start:shopify": "shopify theme dev --store bermondseygallery.myshopify.com",
+        "tailwind": "npx tailwindcss -i ./assets/base.css -o ./assets/output.css --watch",
+        "purgeCSS": "purifycss  './assets/**.css' './**/*.liquid' -i ./assets/base.css  -o purified.css --info --rejected",
+        "devpull": "shopify theme pull -d"
+    },
+    "devDependencies": {
+
+    },
+    "dependencies": {
+        "concurrently": "^8.2.2"
+    }
+}
+
