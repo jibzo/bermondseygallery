@@ -54,7 +54,7 @@
       ],
       "settings": {
         "title": "Our Services",
-        "crop": "0.8",
+        "crop": "1.3",
         "text_alignment": "text-right"
       }
     },
