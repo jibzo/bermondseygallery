@@ -21,7 +21,7 @@
   assign eager_loading_limit = section.blocks.size | at_most: 4
 -%}
 
-<section class="border-b-gridline border-gridline-color bg-gridline-color">
+<section class="border-b-gridline border-gridline-color bg-gridline-color px-section-horizontal-spacing">
   {% if section.settings.title != '' %}
     {%- assign block_heading_level = 'h3' -%}
     {%- render 'section-title',
@@ -30,7 +30,7 @@
     -%}
   {% endif %}
 
-  <ul class="grid grid-cols-1 gap-gridline lg:grid-cols-12">
+  <ul class="grid grid-cols-2 gap-gridline lg:grid-cols-12">
     {% for block in section.blocks %}
       {%- assign block_color = block.settings.color_scheme -%}
       <li

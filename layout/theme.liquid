@@ -185,7 +185,10 @@
 
     {%- render 'css-bridge' -%}
 
-    {{ 'base.bundle.css' | asset_url | stylesheet_tag }}
+    {% comment %} {{ 'base.bundle.css' | asset_url | stylesheet_tag }} {% endcomment %}
+
+    {{ 'output.css' | asset_url | stylesheet_tag }}
+    
   </head>
 
   <body>
