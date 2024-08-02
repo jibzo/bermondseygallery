@@ -1,174 +1,172 @@
-<section x-data="orderStatus()" >
-  <!-- component -->
-  <div class="py-14 px-4 md:px-6 2xl:px-20 2xl:container 2xl:mx-auto">
-    <div class="flex justify-start item-start space-y-2 flex-col">
-      <h1 class="text-3xl dark:text-white lg:text-4xl font-semibold leading-7 lg:leading-9 text-gray-800">
-        Order #<span x-text="orderData.id"></span>
-      </h1>
-      <p class="text-base dark:text-gray-300 font-medium leading-6 text-gray-600">21st Mart 2021 at 10:34 PM</p>
-    </div>
-    <div class="mt-10 flex flex-col xl:flex-row jusitfy-center items-stretch w-full xl:space-x-8 space-y-4 md:space-y-6 xl:space-y-0">
-      <div class="flex flex-col justify-start items-start w-full space-y-4 md:space-y-6 xl:space-y-8">
-        <div class="flex flex-col justify-start items-start dark:bg-gray-800 bg-gray-50 px-4 py-4 md:py-6 md:p-6 xl:p-8 w-full">
-          <p class="text-lg md:text-xl dark:text-white font-semibold leading-6 xl:leading-5 text-gray-800">
-            Order Summary
-          </p>
+<section class="min-h-screen">
+  <div
+    class="py-14 px-4 md:px-6 2xl:px-20 2xl:container 2xl:mx-auto"
+    x-data="orderStatus()"
+    x-cloak
+  >
+    <!-- Your content here -->
+    <div x-show="orderData">
+      <div class="flex justify-start item-start space-y-2 flex-col">
+        <h1 class="text-3xl dark:text-white lg:text-4xl font-semibold leading-7 lg:leading-9 text-gray-800">
+          Order #<span x-text="orderData?.id"></span>
+        </h1>
+        <p class="text-base dark:text-gray-300 font-medium leading-6 text-gray-600" x-text="formattedDate">
+          {% comment %} 2024-06-07T17:19:34.551Z {% endcomment %}
+        </p>
+      </div>
+      <div class="mt-10 flex flex-col xl:flex-row jusitfy-center items-stretch w-full xl:space-x-8 space-y-4 md:space-y-6 xl:space-y-0">
+        <div class="flex flex-col justify-start items-start w-full space-y-4 md:space-y-6 xl:space-y-8">
+          <div class="flex flex-col justify-start items-start dark:bg-gray-800 bg-gray-50 px-4 py-4 md:py-6 md:p-6 xl:p-8 w-full">
+            <p class="text-lg md:text-xl dark:text-white font-semibold leading-6 xl:leading-5 text-gray-800">
+              Order Summary
+            </p>
 
-          <template x-for="(item, index) in orderData.invoices.quoteItems">
-            {% render 'quote-items' %}
-          </template>
-        </div>
-        <div class="flex justify-center flex-col md:flex-row flex-col items-stretch w-full space-y-4 md:space-y-0 md:space-x-6 xl:space-x-8">
-          <div class="flex flex-col px-4 py-6 md:p-6 xl:p-8 w-full bg-gray-50 dark:bg-gray-800 space-y-6">
-            <h3 class="text-xl dark:text-white font-semibold leading-5 text-gray-800">Summary</h3>
-            <div class="flex justify-center items-center w-full space-y-4 flex-col border-gray-200 border-b pb-4">
-              <div class="flex justify-between w-full" x-show="orderData.invoices.orderData.discount > 0">
-                <p class="text-base dark:text-white leading-4 text-gray-800">Subtotal</p>
-                <p class="text-base dark:text-gray-300 leading-4 text-gray-600" x-text="`£${orderData.invoices.orderData.grandTotal}`"></p>
+            <template x-for="(item, index) in orderData?.invoices.quoteItems">
+              {% render 'quote-items' %}
+            </template>
+          </div>
+          <div class="flex justify-center md:flex-row flex-col items-stretch w-full space-y-4 md:space-y-0 md:space-x-6 xl:space-x-8">
+            <div class="flex flex-col px-4 py-6 md:p-6 xl:p-8 w-full bg-gray-50 dark:bg-gray-800 space-y-6">
+              <h3 class="text-xl dark:text-white font-semibold leading-5 text-gray-800">Summary</h3>
+              <div class="flex justify-center items-center w-full space-y-4 flex-col border-gray-200 border-b pb-4">
+                <div class="flex justify-between w-full" x-show="orderData?.invoices.orderData.discount > 0">
+                  <p class="text-base dark:text-white leading-4 text-gray-800">Subtotal</p>
+                  <p
+                    class="text-base dark:text-gray-300 leading-4 text-gray-600"
+                    x-text="`£${orderData?.invoices.orderData.grandTotal}`"
+                  ></p>
+                </div>
+                <div
+                  class="flex justify-between items-center w-full"
+                  x-show="orderData?.invoices.orderData.discount > 0"
+                >
+                  <p class="text-base dark:text-white leading-4 text-gray-800">Discount</p>
+                  <p class="text-base dark:text-gray-300 leading-4 text-gray-600">
+                    <span x-text="`£${orderData?.invoices.orderData.discount}`"> </span>
+                    <span x-text="`(${orderData?.invoices.orderData.discountPercentage}%)`"> </span>
+                  </p>
+                </div>
               </div>
-              <div class="flex justify-between items-center w-full" x-show="orderData.invoices.orderData.discount > 0">
-                <p class="text-base dark:text-white leading-4 text-gray-800">
-                  Discount
-                </p>
-                <p class="text-base dark:text-gray-300 leading-4 text-gray-600">
-                    <span x-text="`£${orderData.invoices.orderData.discount}`">
-                    </span>
-                    <span x-text="`(${orderData.invoices.orderData.discountPercentage}%)`">
-                    </span>
+              <div class="flex justify-between items-center w-full">
+                <p class="text-base dark:text-white font-semibold leading-4 text-gray-800">Total</p>
+                <p
+                  class="text-base dark:text-gray-300 font-semibold leading-4 text-gray-600"
+                  x-text="`£${orderData?.invoices.orderData.discountedTotal ? orderData?.invoices.orderData.discountedTotal : orderData?.invoices.orderData.grandTotal}`"
+                ></p>
+              </div>
+              <div class="flex justify-center items-center w-full space-y-4 flex-col border-gray-200 border-b pb-4 !mt-12">
+                <div class="flex justify-between w-full">
+                  <p class="text-xl dark:text-white font-semibold leading-5 text-gray-800">Payments</p>
+                </div>
+
+                <template x-for="(payment, index) in orderData?.paymentData">
+                  <div
+                    class="flex justify-between items-center w-full"
+                  >
+                    <p class="text-base dark:text-white leading-4 text-gray-800" x-text="payment.date"></p>
+                    <p class="text-base dark:text-gray-300 leading-4 text-gray-600" x-text="`£${payment.amount}`">
+                      1210
                     </p>
-              </div>
-            </div>
-            <div class="flex justify-between items-center w-full">
-              <p class="text-base dark:text-white font-semibold leading-4 text-gray-800">Total</p>
-              <p
-                class="text-base dark:text-gray-300 font-semibold leading-4 text-gray-600"
-                x-text="`£${orderData.invoices.orderData.discountedTotal ? orderData.invoices.orderData.discountedTotal : orderData.invoices.orderData.grandTotal}`"
-              ></p>
-            </div>
-          </div>
+                  </div>
+                </template>
 
-          <div
-            class="flex flex-col justify-center px-4 py-6 md:p-6 xl:p-8 w-full bg-gray-50 dark:bg-gray-800 space-y-6"
-            x-data="{
-            get progreessBar() {
-            const statusMap = {
-                'Ordered': 25,
-                'Framers': 50,
-                'Collect': 75,
-                'Collected': 100
-              };
-              return `${statusMap[orderData.fulfillmentStatus] || 0}%`;
-                }
-            }"
-          >
-            <h3 class="text-xl dark:text-white font-semibold leading-5 text-gray-800 flex justify-between">
-                <span>Order Status</span><span x-text="orderData.fulfillmentStatus"></span>
-        </h3>
-            
-
-            <span x-show="orderData.fulfillmentStatus == 'Framers' || orderData.fulfillmentStatus == 'Ordered'" class="text-center flex flex-col justify-center"> 
-                <p>
-                Your order is being worked on...
-                </p>
-                <div class="flex justify-center">
-                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="-5.0 -10.0 110.0 135.0" class="w-12 h-12 animate-spin">
-                    <g>
-                     <path d="m34.5 41.379h24.469v6.8906h-24.469z"/>
-                     <path d="m34.5 50h24.469v6.8906h-24.469z"/>
-                     <path d="m46.738 26.18c-13.141 0-23.82 10.691-23.82 23.82s10.691 23.82 23.82 23.82c13.129 0 23.82-10.691 23.82-23.82s-10.691-23.82-23.82-23.82zm13.961 31.582c0 0.46875-0.37891 0.85938-0.85938 0.85938h-26.199c-0.46875 0-0.85938-0.37891-0.85938-0.85938v-17.238c0-0.46875 0.37891-0.85938 0.85938-0.85938h26.199c0.46875 0 0.85938 0.37891 0.85938 0.85938z"/>
-                     <path d="m88.609 43.949-10.801-2.1602c-0.73047-2.7891-1.8398-5.4609-3.2891-7.9492l6.1094-9.1602c0.23047-0.33984 0.17969-0.80078-0.10938-1.0898l-7.3711-7.3711c-0.28906-0.28906-0.73828-0.32812-1.0898-0.10938l-9.1602 6.1094c-2.4883-1.4492-5.1602-2.5586-7.9492-3.2891l-2.1602-10.801c-0.078124-0.39844-0.42969-0.69922-0.83984-0.69922h-10.422c-0.41016 0-0.76172 0.28906-0.83984 0.69922l-2.1602 10.801c-2.7891 0.73047-5.4609 1.8398-7.9492 3.2891l-9.1602-6.1094c-0.33984-0.23047-0.80078-0.17969-1.0781 0.10938l-7.3711 7.3711c-0.28906 0.28906-0.32812 0.73828-0.10938 1.0898l6.1094 9.1602c-1.4492 2.4883-2.5586 5.1602-3.2891 7.9492l-10.801 2.1602c-0.39844 0.078125-0.69922 0.42969-0.69922 0.83984v10.422c0 0.41016 0.28906 0.76172 0.69922 0.83984l10.801 2.1602c0.73047 2.7891 1.8398 5.4609 3.2891 7.9492l-6.1094 9.1602c-0.23047 0.33984-0.17969 0.80078 0.10938 1.0781l7.3711 7.3711c0.28906 0.28906 0.73828 0.32812 1.0898 0.10938l9.1602-6.1094c2.4883 1.4492 5.1602 2.5586 7.9492 3.2891l2.1602 10.801c0.078125 0.39844 0.42969 0.69922 0.83984 0.69922h10.422c0.41016 0 0.76172-0.28906 0.83984-0.69922l2.1602-10.801c2.7891-0.73047 5.4609-1.8398 7.9492-3.2891l9.1602 6.1094c0.33984 0.23047 0.80078 0.17969 1.0781-0.10938l7.3711-7.3711c0.28906-0.28906 0.32812-0.73828 0.10938-1.0898l-6.1094-9.1602c1.4492-2.4883 2.5586-5.1602 3.2891-7.9492l10.801-2.1602c0.39844-0.078124 0.69922-0.42969 0.69922-0.83984v-10.422c0-0.41016-0.28906-0.76172-0.69922-0.83984zm-41.871 31.59c-14.078 0-25.539-11.461-25.539-25.539s11.461-25.539 25.539-25.539 25.539 11.461 25.539 25.539-11.461 25.539-25.539 25.539z"/>
-                    </g>
-                   </svg>
-                   </div>
-            </span>
-
-
-            <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
-              <div class="bg-blue-600 h-2.5 rounded-full" :style="{ width: progreessBar }"></div>
-            </div>
-
-            {% comment %} "Ordered", "Framers", "Collect", "Collected" {% endcomment %}
-
-            <div x-show="orderData.fulfillmentStatus == 'Collect'">
-            <div class="flex justify-between items-start w-full mb-4">
-              <div class="flex justify-center items-center space-x-4">
-                {% comment %} <div class="w-8 h-8">
-                  <img class="w-full h-full" alt="logo" src="https://i.ibb.co/L8KSdNQ/image-3.png">
-                </div> {% endcomment %}
-
-                <div class="flex flex-col justify-start items-center">
-                  <p class="text-lg leading-6 dark:text-white font-semibold text-gray-800">Ready to collect<br></p>
+                <div class="flex justify-between items-center w-full">
+                  <p class="text-base dark:text-white font-semibold leading-4 text-gray-800">Payment Due</p>
+                  <p
+                    class="text-base dark:text-gray-300 font-semibold leading-4 text-gray-600"
+                    x-text="`£${orderData?.amountDue}`"
+                  ></p>
                 </div>
               </div>
             </div>
-            <div class="w-full flex justify-center items-center">
-              <a
-                href="https://calendly.com/bermondseygallery/collection"
-                class="hover:bg-black dark:bg-white dark:text-gray-800 dark:hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 py-5 w-96 md:w-full bg-gray-800 text-base font-medium leading-4 text-white px-4"
-                >Book Your Collection</a
-              >
-              </div>
-            </div>
 
+
+            {% render 'category-order-status' %}
           </div>
         </div>
-      </div>
-      <div class="bg-gray-50 dark:bg-gray-800 w-full xl:w-96 flex justify-between items-center md:items-start px-4 py-6 md:p-6 xl:p-8 flex-col">
-        <h3 class="text-xl dark:text-white font-semibold leading-5 text-gray-800">Customer</h3>
-        <div class="flex flex-col md:flex-row xl:flex-col justify-start items-stretch h-full w-full md:space-x-6 lg:space-x-8 xl:space-x-0">
-          <div class="flex flex-col justify-start items-start flex-shrink-0">
-            <div class="flex justify-center w-full md:justify-start items-center space-x-4 py-8 border-b border-gray-200">
-              {% comment %} <img src="https://i.ibb.co/5TSg7f6/Rectangle-18.png" alt="avatar" /> {% endcomment %}
-              <div class="flex justify-start items-start flex-col space-y-2">
-                <p class="text-base dark:text-white font-semibold leading-4 text-left text-gray-800">
-                  <span x-text="orderData.customer.firstname"></span>
-                  <span x-text="orderData.customer.lastname"></span>
-                </p>
-                {% comment %} <p class="text-sm dark:text-gray-300 leading-5 text-gray-600">10 Previous Orders</p> {% endcomment %}
+        <div class="bg-gray-50 dark:bg-gray-800 w-full xl:w-96 flex justify-between items-center md:items-start px-4 py-6 md:p-6 xl:p-8 flex-col">
+          <h3 class="text-xl dark:text-white font-semibold leading-5 text-gray-800">Customer</h3>
+          <div class="flex flex-col md:flex-row xl:flex-col justify-start items-stretch h-full w-full md:space-x-6 lg:space-x-8 xl:space-x-0">
+            <div class="flex flex-col justify-start items-start flex-shrink-0">
+              <div class="flex justify-center w-full md:justify-start items-center space-x-4 py-8 border-b border-gray-200">
+                {% comment %} <img src="https://i.ibb.co/5TSg7f6/Rectangle-18.png" alt="avatar" /> {% endcomment %}
+                <div class="flex justify-start items-start flex-col space-y-2">
+                  <p class="text-base dark:text-white font-semibold leading-4 text-left text-gray-800">
+                    <span x-text="orderData?.customer.firstname"></span>
+                    <span x-text="orderData?.customer.lastname"></span>
+                  </p>
+                  {% comment %} <p class="text-sm dark:text-gray-300 leading-5 text-gray-600">10 Previous Orders</p> {% endcomment %}
+                </div>
               </div>
-            </div>
 
-            <div class="flex justify-center text-gray-800 dark:text-white md:justify-start items-center space-x-4 py-4 border-b border-gray-200 w-full">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M19 5H5C3.89543 5 3 5.89543 3 7V17C3 18.1046 3.89543 19 5 19H19C20.1046 19 21 18.1046 21 17V7C21 5.89543 20.1046 5 19 5Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" />
-                <path d="M3 7L12 13L21 7" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" />
-              </svg>
-              <p class="cursor-pointer text-sm leading-5 ">
-                <span x-text="orderData.customer.email"></span>
-              </p>
-            </div>
-            <div class="flex justify-center text-gray-800 dark:text-white md:justify-start items-center space-x-4 py-4 border-b border-gray-200 w-full">
-              {% comment %}
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M19 5H5C3.89543 5 3 5.89543 3 7V17C3 18.1046 3.89543 19 5 19H19C20.1046 19 21 18.1046 21 17V7C21 5.89543 20.1046 5 19 5Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" />
-                  <path d="M3 7L12 13L21 7" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" />
+              <div class="flex justify-center text-gray-800 dark:text-white md:justify-start items-center space-x-4 py-4 border-b border-gray-200 w-full">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-mail"
+                >
+                  <rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
                 </svg>
-              {% endcomment %}
+                <p class="cursor-pointer text-sm leading-5 ">
+                  <span x-text="orderData?.customer.email"></span>
+                </p>
+              </div>
+              <div class="flex justify-center text-gray-800 dark:text-white md:justify-start items-center space-x-4 py-4 border-b border-gray-200 w-full">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-phone"
+                >
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                </svg>
 
-              <p class="cursor-pointer text-sm leading-5">
-                <span x-text="orderData.customer.phonenumber"></span>
-              </p>
+                <p class="cursor-pointer text-sm leading-5">
+                  <span x-text="orderData?.customer.phonenumber"></span>
+                </p>
+              </div>
             </div>
+            {% comment %}
+              <div class="flex justify-between xl:h-full items-stretch w-full flex-col mt-6 md:mt-0">
+                <div class="flex justify-center md:justify-start xl:flex-col flex-col md:space-x-6 lg:space-x-8 xl:space-x-0 space-y-4 xl:space-y-12 md:space-y-0 md:flex-row items-center md:items-start">
+                  <div class="flex justify-center md:justify-start items-center md:items-start flex-col space-y-4 xl:mt-8">
+                    <p class="text-base dark:text-white font-semibold leading-4 text-center md:text-left text-gray-800">Shipping Address</p>
+                    <p class="w-48 lg:w-full dark:text-gray-300 xl:w-48 text-center md:text-left text-sm leading-5 text-gray-600">180 North King Street, Northhampton MA 1060</p>
+                  </div>
+                  <div class="flex justify-center md:justify-start items-center md:items-start flex-col space-y-4">
+                    <p class="text-base dark:text-white font-semibold leading-4 text-center md:text-left text-gray-800">Billing Address</p>
+                    <p class="w-48 lg:w-full dark:text-gray-300 xl:w-48 text-center md:text-left text-sm leading-5 text-gray-600">180 North King Street, Northhampton MA 1060</p>
+                  </div>
+                </div>
+                <div class="flex w-full justify-center items-center md:justify-start md:items-start">
+                  <button class="mt-6 md:mt-0 dark:border-white dark:hover:bg-gray-900 dark:bg-transparent dark:text-white py-5 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 border border-gray-800 font-medium w-96 2xl:w-full text-base font-medium leading-4 text-gray-800">Edit Details</button>
+                </div>
+              </div>
+            {% endcomment %}
           </div>
-          {% comment %}
-            <div class="flex justify-between xl:h-full items-stretch w-full flex-col mt-6 md:mt-0">
-              <div class="flex justify-center md:justify-start xl:flex-col flex-col md:space-x-6 lg:space-x-8 xl:space-x-0 space-y-4 xl:space-y-12 md:space-y-0 md:flex-row items-center md:items-start">
-                <div class="flex justify-center md:justify-start items-center md:items-start flex-col space-y-4 xl:mt-8">
-                  <p class="text-base dark:text-white font-semibold leading-4 text-center md:text-left text-gray-800">Shipping Address</p>
-                  <p class="w-48 lg:w-full dark:text-gray-300 xl:w-48 text-center md:text-left text-sm leading-5 text-gray-600">180 North King Street, Northhampton MA 1060</p>
-                </div>
-                <div class="flex justify-center md:justify-start items-center md:items-start flex-col space-y-4">
-                  <p class="text-base dark:text-white font-semibold leading-4 text-center md:text-left text-gray-800">Billing Address</p>
-                  <p class="w-48 lg:w-full dark:text-gray-300 xl:w-48 text-center md:text-left text-sm leading-5 text-gray-600">180 North King Street, Northhampton MA 1060</p>
-                </div>
-              </div>
-              <div class="flex w-full justify-center items-center md:justify-start md:items-start">
-                <button class="mt-6 md:mt-0 dark:border-white dark:hover:bg-gray-900 dark:bg-transparent dark:text-white py-5 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 border border-gray-800 font-medium w-96 2xl:w-full text-base font-medium leading-4 text-gray-800">Edit Details</button>
-              </div>
-            </div>
-          {% endcomment %}
         </div>
       </div>
+    </div>
+    <div>
+      <p>
+        <span x-show="!orderData & !error" class="text-gray-800 dark:text-white font-semibold leading-4 text-center ">
+          Loading order data...
+        </span>
+        <span x-text="error"></span>
+      </p>
     </div>
   </div>
 </section>
@@ -178,26 +176,39 @@
     return {
       orderData: null,
       isLoading: false,
+      formattedDate: null,
+      urlParams: new URLSearchParams(window.location.search),
+      error: null,
       getOrderIdFromUrl() {
-        const urlParams = new URLSearchParams(window.location.search);
-        return urlParams.get('id');
+        return this.urlParams.get('id');
+      },
+      getNumberIdFromUrl() {
+        return this.urlParams.get('number');
       },
       fetchOrderStatus() {
         this.isLoading = true;
         this.error = null;
         let orderId = this.getOrderIdFromUrl();
-        console.log('🚀 ~ fetchOrderStatus ~ id:', orderId);
+        let numberId = this.getNumberIdFromUrl();
 
-        fetch(`https://bermondseygallery-postgres.herokuapp.com/order-status/${orderId}`)
+        fetch(`https://bermondseygallery-postgres.herokuapp.com/order-status/${orderId}/${numberId}`)
           .then((response) => {
             if (!response.ok) {
               throw new Error('Network response was not ok');
             }
             return response.json();
           })
-          .then((data) => {
-            this.orderData = data.data;
+          .then(({ data }) => {
+            this.orderData = data;
             this.isLoading = false;
+
+            this.formattedDate = new Date(this.orderData.published_at).toLocaleString('en-US', {
+              year: 'numeric',
+              month: 'long',
+              day: 'numeric',
+              hour: '2-digit',
+              minute: '2-digit',
+            });
           })
           .catch((error) => {
             this.error = 'Failed to fetch order status';
@@ -206,7 +217,6 @@
           });
       },
       init() {
-        console.log('🚀 ~ init ~ init:');
         this.fetchOrderStatus();
       },
     };

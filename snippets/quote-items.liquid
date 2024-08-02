@@ -4,12 +4,12 @@
           return item.products.reduce((total, product) => total + parseFloat(product.price), 0).toFixed(2);
         }
       }">
-  <div class="pb-4 md:pb-8 w-full md:w-40">
+  <div class="pb-4 md:pb-8  w-20 md:w-40">
     {% comment %}
       <img class="w-full hidden md:block" src="https://i.ibb.co/84qQR4p/Rectangle-10.png" alt="dress" />
       <img class="w-full md:hidden" src="https://i.ibb.co/L039qbN/Rectangle-10.png" alt="dress" />
     {% endcomment %}
-    <svg
+    {% comment %} <svg
       xmlns="http://www.w3.org/2000/svg"
       xmlns:xlink="http://www.w3.org/1999/xlink"
       version="1.1"
@@ -20,7 +20,9 @@
       xml:space="preserve"
     >
       <path d="M54.941,23.832L50,18.891l-4.942,4.941H19.965v60.07h60.07v-60.07H54.941z M50,20.305l3.527,3.527h-7.055L50,20.305z   M73.035,76.902h-46.07v-46.07h46.07V76.902z"/>
-    </svg>
+    </svg> {% endcomment %}
+
+    <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-frame"><line x1="22" x2="2" y1="6" y2="6"/><line x1="22" x2="2" y1="18" y2="18"/><line x1="6" x2="6" y1="2" y2="22"/><line x1="18" x2="18" y1="2" y2="22"/></svg>
   </div>
   <div class="border-b border-gray-200 md:flex-row flex-col flex justify-between items-start w-full pb-8 space-y-4 md:space-y-0">
     <div class="w-full flex flex-col justify-start items-start space-y-8">
@@ -30,11 +32,11 @@
       ></h3>
       <div class="flex justify-start items-start flex-col space-y-2">
         <template x-for="(product, index) in item.products">
-          <p class="text-sm dark:text-white leading-none text-gray-800">
+          <p class="text-sm dark:text-white leading-none text-gray-800 capitalize">
             <span class="dark:text-gray-400 text-gray-300" x-text="product.type"> </span>
             <span x-text="product.name"> </span>
           </p>
-          <p class="text-sm dark:text-white leading-none text-gray-800">
+          <p class="text-sm dark:text-white leading-none text-gray-800 capitalize">
             <span class="dark:text-gray-400 text-gray-300" x-text="product.price"> </span>
           </p>
         </template>
