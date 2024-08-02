@@ -23,10 +23,104 @@
       "type": "main-order-status",
       "settings": {
       }
+    },
+    "faq_3yWcKa": {
+      "type": "faq",
+      "blocks": {
+        "question_yiqrBk": {
+          "type": "question",
+          "settings": {
+            "question": "What types of frames do you offer?",
+            "answer": "<p>We offer a wide variety of frames including wooden, metal, and custom frames. We also provide a range of styles from classic to contemporary to match any decor.<\/p>"
+          }
+        },
+        "question_My88F6": {
+          "type": "question",
+          "settings": {
+            "question": "How do I choose the right frame for my artwork?",
+            "answer": "<p>Our experienced staff can help you select the perfect frame to complement your artwork. You can visit our store for a consultation, or you can send us a picture of your artwork and we'll provide recommendations.<\/p>"
+          }
+        },
+        "question_7T68C9": {
+          "type": "question",
+          "settings": {
+            "question": "Can you frame items other than pictures?",
+            "answer": "<p>Yes! We can frame a wide range of items including certificates, memorabilia, textiles, mirrors, and more. If you have something unique you'd like framed, just ask!<\/p>"
+          }
+        },
+        "question_tTFYmj": {
+          "type": "question",
+          "settings": {
+            "question": "How long does it take to get something framed?",
+            "answer": "<p>Our standard turnaround time is typically 2-3 weeks, but it can vary depending on the complexity of the job and the availability of materials. We will provide an estimated completion time when you place your order.<\/p>"
+          }
+        },
+        "question_JykadC": {
+          "type": "question",
+          "settings": {
+            "question": "What is the cost of framing?",
+            "answer": "<p>The cost of framing depends on several factors including the size of the piece, the type of frame, and any additional features such as matting or glass. We offer a range of options to fit different budgets and can provide a detailed quote upon request.<\/p>"
+          }
+        },
+        "question_NpPrPk": {
+          "type": "question",
+          "settings": {
+            "question": "Do you offer any guarantees or warranties?",
+            "answer": "<p>Yes, we stand by the quality of our work. If you are not satisfied with your frame, please let us know and we will work with you to make it right.<\/p>"
+          }
+        },
+        "question_8gXLGC": {
+          "type": "question",
+          "settings": {
+            "question": "Can you help with the design process?",
+            "answer": "<p>Absolutely. Our design experts are here to assist you every step of the way. We can help you choose the right frame, matting, and glass to ensure your piece looks its best.<\/p>"
+          }
+        },
+        "question_x6Xx8n": {
+          "type": "question",
+          "settings": {
+            "question": "What types of glass do you offer?",
+            "answer": "<p>We offer several types of glass including standard, non-glare, UV-protective, and museum-quality glass. Each type of glass provides different levels of protection and visibility, and we can help you choose the best option for your needs.<\/p>"
+          }
+        },
+        "question_xjHVU3": {
+          "type": "question",
+          "settings": {
+            "question": "Do you offer bulk framing services for businesses or events?",
+            "answer": "<p>Yes, we offer bulk framing services for businesses, exhibitions, and events. Please contact us to discuss your specific needs and to receive a quote.<\/p>"
+          }
+        },
+        "question_ATWHd3": {
+          "type": "question",
+          "settings": {
+            "question": "How can I contact you?",
+            "answer": "<p>You can reach us by phone at 0207 231 3141, by email at info@bermondseygallery.co.uk, or by using the contact form on our website. We look forward to hearing from you!<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "question_yiqrBk",
+        "question_My88F6",
+        "question_7T68C9",
+        "question_tTFYmj",
+        "question_JykadC",
+        "question_NpPrPk",
+        "question_8gXLGC",
+        "question_x6Xx8n",
+        "question_xjHVU3",
+        "question_ATWHd3"
+      ],
+      "settings": {
+        "title": "FAQs",
+        "two_columns_desktop": true,
+        "heading_font": "font-heading",
+        "color_scheme": ""
+      }
     }
   },
   "order": [
     "main",
-    "main_order_status_PN7tYb"
+    "main_order_status_PN7tYb",
+    "faq_3yWcKa"
   ]
 }

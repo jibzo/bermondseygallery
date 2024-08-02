@@ -7420,6 +7420,10 @@ html.no-js .splide:not(.is-active) .no-js\:\[\.splide\:not\(\.is-active\)_\&\]\:
   padding-bottom: 0.75rem;
 }
 
+.pt-14{
+  padding-top: 3.5rem;
+}
+
 .text-left{
   text-align: left;
 }
@@ -8243,6 +8247,10 @@ html.no-js .splide:not(.is-active) .no-js\:\[\.splide\:not\(\.is-active\)_\&\]\:
     margin-top: 1.5rem;
   }
 
+  .md\:-ml-2{
+    margin-left: -0.5rem;
+  }
+
   .md\:block{
     display: block;
   }
@@ -8369,6 +8377,10 @@ html.no-js .splide:not(.is-active) .no-js\:\[\.splide\:not\(\.is-active\)_\&\]\:
 
   .md\:justify-between{
     justify-content: space-between;
+  }
+
+  .md\:gap-4{
+    gap: 1rem;
   }
 
   .md\:gap-x-16{
