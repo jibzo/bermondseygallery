@@ -23,88 +23,10 @@
       "type": "main-order-status",
       "settings": {
       }
-    },
-    "faq_XW6mme": {
-      "type": "faq",
-      "blocks": {
-        "question_kRcHia": {
-          "type": "question",
-          "settings": {
-            "question": "Frequently asked question",
-            "answer": "<p>Use this text to share the answer to the question with your customers.<\/p>"
-          }
-        },
-        "question_YNhFmE": {
-          "type": "question",
-          "settings": {
-            "question": "Frequently asked question",
-            "answer": "<p>Use this text to share the answer to the question with your customers.<\/p>"
-          }
-        },
-        "question_MBWwcB": {
-          "type": "question",
-          "settings": {
-            "question": "Frequently asked question",
-            "answer": "<p>Use this text to share the answer to the question with your customers.<\/p>"
-          }
-        },
-        "question_jXxaen": {
-          "type": "question",
-          "settings": {
-            "question": "Frequently asked question",
-            "answer": "<p>Use this text to share the answer to the question with your customers.<\/p>"
-          }
-        },
-        "question_gqfT8L": {
-          "type": "question",
-          "settings": {
-            "question": "Frequently asked question",
-            "answer": "<p>Use this text to share the answer to the question with your customers.<\/p>"
-          }
-        },
-        "question_GYDeHF": {
-          "type": "question",
-          "settings": {
-            "question": "Frequently asked question",
-            "answer": "<p>Use this text to share the answer to the question with your customers.<\/p>"
-          }
-        },
-        "question_wjf6bK": {
-          "type": "question",
-          "settings": {
-            "question": "Frequently asked question",
-            "answer": "<p>Use this text to share the answer to the question with your customers.<\/p>"
-          }
-        },
-        "question_tEamge": {
-          "type": "question",
-          "settings": {
-            "question": "Frequently asked question",
-            "answer": "<p>Use this text to share the answer to the question with your customers.<\/p>"
-          }
-        }
-      },
-      "block_order": [
-        "question_kRcHia",
-        "question_YNhFmE",
-        "question_MBWwcB",
-        "question_jXxaen",
-        "question_gqfT8L",
-        "question_GYDeHF",
-        "question_wjf6bK",
-        "question_tEamge"
-      ],
-      "settings": {
-        "title": "FAQs",
-        "two_columns_desktop": true,
-        "heading_font": "font-heading",
-        "color_scheme": ""
-      }
     }
   },
   "order": [
     "main",
-    "main_order_status_PN7tYb",
-    "faq_XW6mme"
+    "main_order_status_PN7tYb"
   ]
 }
