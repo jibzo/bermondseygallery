@@ -1,5 +1,7 @@
+
+<p>Hi {{firstname}},</p><p> Please find the invoice attached below. Use the link below to check your order status  <br> <a href='{{orderStatus}}'> click here to track your order!</a></p>
 <div
-  class=" px-4 py-6 md:p-6 xl:p-8 w-full bg-gray-50 dark:bg-gray-800 space-y-6"
+  class=" px-4 py-6 md:p-6 xl:p-8 w-full bg-gray-50  space-y-6"
   x-data="
     {
     get progreessBar() {
@@ -14,7 +16,7 @@
     }
   "
 >
-  <h3 class="text-xl dark:text-white font-semibold leading-5 text-gray-800 flex items-center gap-2">
+  <h3 class="text-xl  font-semibold leading-5 text-gray-800 flex items-center gap-2">
     Order Status:
 
     <div
@@ -74,7 +76,7 @@
         {% endcomment %}
 
         <div class="flex flex-col justify-start items-center">
-          <p class="text-lg leading-6 dark:text-white font-semibold text-gray-800">
+          <p class="text-lg leading-6  font-semibold text-gray-800">
             Your artwork is ready to come home! 
             <br>
             Click below to schedule your collection time.
@@ -85,9 +87,17 @@
     <div class="w-full flex justify-center items-center">
       <a
         href="https://calendly.com/bermondseygallery/collection"
-        class="hover:bg-black dark:bg-white dark:text-gray-800 rounded-md font-bold dark:hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 py-5 w-96 md:w-full  bg-red-500 text-base leading-4 text-white px-4"
+        class="hover:bg-black   rounded-md font-bold  focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 py-5 w-96 md:w-full  bg-red-500 text-base leading-4 text-white px-4"
         >Book Your Collection</a
       >
     </div>
   </div>
 </div>
+
+
+
+
+
+
+
+
