@@ -63,10 +63,10 @@
                 <template x-for="(payment, index) in orderData?.paymentData">
                   <div
                     class="flex justify-between items-center w-full"
+                    x-show="payment.amount > 0"
                   >
                     <p class="text-base  leading-4 text-gray-800" x-text="payment.date"></p>
                     <p class="text-base  leading-4 text-gray-600" x-text="`£${payment.amount}`">
-                      1210
                     </p>
                   </div>
                 </template>
